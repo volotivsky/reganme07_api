@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 app.use('/uploads',express.static('uploads'))
 app.get('/', (req,res)=>{
-    res.send('agfga")
+    res.send('agfga')
              })
 const storage = multer.diskStorage({
     destination: (_,__,cb)=>{
