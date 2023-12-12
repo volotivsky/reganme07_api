@@ -37,7 +37,7 @@ app.post('/posts', post_validator, async(req,res)=>{
     try{
         const errors = validationResult(req)
         if (errors.errors.length>0) return res.status(400).json({err:'ошибка в создании поста', errors: errors})
-        const doc = Schema_post({
+        const doc = await Schema_post({
     title: req.body.title,
     description: req.body.description,
     img: req.body.img,
@@ -71,7 +71,7 @@ app.post('/register', user_validator, async (req,res)=>{
     })
     if(findUser) return res.status(401).json('пользователь существует')
     
-    const doc = Schema_user({
+    const doc = await Schema_user({
         name: req.body.name, 
         email:req.body.email,
         password: req.body.password
